@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  *
- * @author x44h
+ * @author Luis Lima
  */
 public class TopicoDto {
 
