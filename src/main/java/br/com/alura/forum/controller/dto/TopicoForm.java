@@ -3,6 +3,9 @@ package br.com.alura.forum.controller.dto;
 import br.com.alura.forum.model.Curso;
 import br.com.alura.forum.model.Topico;
 import br.com.alura.forum.repository.CursoRepository;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 /**
  *
@@ -10,9 +13,14 @@ import br.com.alura.forum.repository.CursoRepository;
  */
 public class TopicoForm {
 
+    @NotNull @NotEmpty @Length(min = 5)
     private String titulo;
+    
+    @NotNull @NotEmpty @Length(min = 10)
     private String mensagem;
-    private String curso;
+    
+    @NotNull @NotEmpty
+    private String nomeCurso;
 
     public String getTitulo() {
         return titulo;
@@ -30,16 +38,18 @@ public class TopicoForm {
         this.mensagem = mensagem;
     }
 
-    public String getCurso() {
-        return curso;
+    public String getNomeCurso() {
+        return nomeCurso;
     }
 
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setNomeCurso(String nomeCurso) {
+        this.nomeCurso = nomeCurso;
     }
+
+
     
     public Topico converter(CursoRepository cursoRepository){
-        Curso curso = cursoRepository.findByNome(this.curso);
+        Curso curso = cursoRepository.findByNome(this.nomeCurso);
         return new Topico(this.titulo, mensagem, curso);
     }
 }
