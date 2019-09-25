@@ -24,6 +24,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,9 +53,7 @@ public class Topicoscontroller {
     
     @GetMapping
     public Page<TopicoDto> listar(@RequestParam(required = false) String nomeCurso,
-            @RequestParam int pagina, @RequestParam int quantidade,
-            @RequestParam String ordenacao){ 
-        Pageable paginacao = PageRequest.of(pagina, quantidade, Sort.Direction.DESC, ordenacao);
+            @PageableDefault(sort = "id", direction = Sort.Direction.DESC, page = 0, size = 1) Pageable paginacao){         
         if (null == nomeCurso){            
             Page<Topico> topicos = topicoRepository.findAll(paginacao);
             return TopicoDto.converter(topicos);
