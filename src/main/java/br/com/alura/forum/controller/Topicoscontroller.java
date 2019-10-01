@@ -8,7 +8,7 @@ package br.com.alura.forum.controller;
 import br.com.alura.forum.controller.dto.AtualizacaoTopicoForm;
 import br.com.alura.forum.controller.dto.DetalhesTopicoDto;
 import br.com.alura.forum.controller.dto.TopicoDto;
-import br.com.alura.forum.controller.dto.TopicoForm;
+import br.com.alura.forum.controller.form.TopicoForm;
 import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.alura.forum.model.Topico;
 import br.com.alura.forum.repository.CursoRepository;
