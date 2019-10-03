@@ -6,8 +6,8 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 
 @SpringBootApplication
-@EnableSpringDataWebSupport // Habilita o suporte ao uso de paginação via request 
-@EnableCaching //habilita o suporte a cache 
+@EnableSpringDataWebSupport
+@EnableCaching
 public class ForumApplication {
 
 	public static void main(String[] args) {
